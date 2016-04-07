@@ -88,6 +88,10 @@
         
         NSRange substringRange = NSMakeRange(location, MIN(digitCount, aString.length - location));
         
+        if (i > 0 && substringRange.length) {
+            [mutableString appendString:aGroupSeparater];
+        }
+
         if (aMaskingCharacter && [aMaskingGroupIndexSet containsIndex:i]) {
             NSString *maskString = [@"" stringByPaddingToLength:substringRange.length withString:aMaskingCharacter startingAtIndex:0];
             [mutableString appendString:maskString];
@@ -99,10 +103,6 @@
         
         if (substringRange.length < digitCount) {
             break;
-        }
-
-        if (i < self.numberGrouping.count - 1) {
-            [mutableString appendString:aGroupSeparater];
         }
     }
     
