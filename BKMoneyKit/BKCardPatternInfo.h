@@ -26,6 +26,11 @@
 @property (nonatomic, readonly) NSInteger numberOfGroups;
 
 /**
+ * Maximum digits count for this pattern
+ */
+@property (nonatomic, readonly) NSInteger maxLength;
+
+/**
  * Initialize card pattern info with dictionary object in CardPatterns.plist
  */
 - (instancetype)initWithDictionary:(NSDictionary *)aDictionary;
